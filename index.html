@@ -276,6 +276,7 @@
 
                     <div class="left">
                         <button onclick="fun2()">print</button>
+                        <button onclick="del()">delete</button>
                     </div>
                     <div class="right">
                         <table>
@@ -366,6 +367,12 @@
 
         function fun2() {
             window.print()
+        }
+
+        function del(){
+            document.getElementById('tbody').innerHTML=" "
+            document.getElementById("sub_totle").innerHTML = ""
+            document.getElementById("net_total").innerHTML = ""
         }
     </script>
 </body>
