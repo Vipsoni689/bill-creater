@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* overflow: hidden; */
+        }
+
+        body {
+            background-color: rgb(0, 255, 255);
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 40px;
+
+
+        }
+
+        .content {
+            width: 45%;
+            padding: 10px;
+            box-shadow: 0 0 20px gray;
+            background-color: #03fcad;
+
+        }
+
+        .content h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+        }
+
+        .data {
+            width: 45%;
+            box-shadow: 0 0 20px gray;
+            background-color: #03fcad;
+
+
+            position: relative;
+        }
+
+        .content table,
+        .data .tab table {
+            width: 100%;
+        }
+
+        .content table th,
+        .data .tab table th {
+            font-size: 20px;
+            text-transform: capitalize;
+            height: 30px;
+        }
+
+        table th,
+        td {
+            border: 1px solid #134bf3;
+            overflow: hidden;
+            color: rgb(0, 0, 0);
+        }
+
+        table td {
+            text-align: center;
+        }
+
+        table td input {
+            width: 100%;
+            height: 30px;
+            border: none;
+            outline: none;
+            padding-left: 10px;
+            font-size: 22px;
+            caret-color: red;
+            text-transform: capitalize;
+        }
+
+        button {
+            padding: 8px 20px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            background-color: rgb(46, 15, 223);
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.603);
+            transition: all 0.5s;
+            letter-spacing: 2px;
+        }
+
+        button:hover {
+            background-color: red;
+            box-shadow: 0 0 10px rgba(229, 77, 6, 0.603);
+        }
+
+        .data .head {
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+        }
+
+        .data .head h1 {
+            text-align: center;
+            color: rgb(0, 0, 0);
+            text-transform: uppercase;
+        }
+
+        .data .head p {
+            text-align: center;
+            text-transform: capitalize;
+            color: rgb(9, 9, 9);
+        }
+
+        .invoice {
+            background-color: rgb(0, 255, 8);
+            text-align: center;
+            text-transform: capitalize;
+            color: white;
+            padding: 10px;
+        }
+
+        .box {
+            padding: 10px;
+            background-color: white;
+
+        }
+
+        #totle {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            padding: 0px !important;
+            margin-top: 60px;
+
+        }
+
+        #totle th {
+            font-size: 18px !important;
+            text-transform: capitalize;
+            padding: 5px;
+        }
+
+        #totle td {
+            padding: 5px 25px;
+        }
+
+        .heading {
+            color: #134bf3;
+        }
+
+
+
+        @media screen and (max-width: 500px) {
+            .main {
+                flex-direction: column;
+            }
+
+            .content {
+                width: auto;
+            }
+
+            .data {
+                width: auto;
+                padding: 10px;
+                border: none;
+            }
+
+            .content table th,
+            .data .tab table th {
+                font-size: 14px;
+                
+            }
+        }
+
+
+        @media print {
+
+            .content {
+                display: none;
+            }
+
+
+            .data {
+                width: 90%;
+                box-shadow: none;
+                /* border: 1px solid black; */
+
+
+            }
+
+            button {
+                display: none;
+            }
+
+            .cut {
+                display: none;
+            }
+
+            .remove {
+                display: none;
+            }
+
+            .box {
+                border: 1px solid black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="content">
+            <h1 class="heading">Raju mega mart</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>product name</th>
+                        <th>product price</th>
+                        <th>product Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="" id="pr_name" class="inp"></td>
+                        <td><input type="number" name="" id="pr_price" class="inp"></td>
+                        <td><input type="number" name="" id="pr_qty" class="inp"></td>
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+            <div class="but" style="display: flex;
+            justify-content: end;">
+                <button id="submit">submit</button>
+            </div>
+        </div>
+
+        <div class="data" id="data">
+            <div class="head">
+                <h1>raju mega mart</h1>
+                <p>address:satram ulasnagar</p>
+                <p>contact:8369039831</p>
+            </div>
+            <div class="invoice">
+                <h1>invoice</h1>
+            </div>
+            <div class="box">
+                <div class="tab">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>product name</th>
+                                <th>product price</th>
+                                <th>product Quantity</th>
+                                <th>total</th>
+                                <!-- <th class="remove">remove</th> -->
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div id="totle" style="padding: 20px;">
+
+                    <div class="left">
+                        <button onclick="fun2()">print</button>
+                    </div>
+                    <div class="right">
+                        <table>
+                            <tr>
+                                <th> sub totle</th>
+                                <td id="sub_totle"></td>
+                            </tr>
+                            <tr>
+                                <th>tax</th>
+                                <td>0.0%</td>
+                            </tr>
+                            <tr>
+                                <th>totle</th>
+                                <td id="net_total">0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('#submit').onclick = function () {
+
+
+            var tbody = document.getElementById('tbody')
+            var tr = document.createElement('tr')
+            tbody.appendChild(tr)
+            var td = document.createElement('td')
+
+            var td1 = document.createElement('td')
+            var td2 = document.createElement('td')
+            var td3 = document.createElement('td')
+            // var td4 = document.createElement('td')
+            // td4.innerHTML = "&times;"
+            // td4.className = "cut"
+            // td4.style = "background-color: red; color:white; font-size:25px;cursor:pointer"
+            tr.appendChild(td)
+            tr.appendChild(td1)
+            tr.appendChild(td2)
+            tr.appendChild(td3)
+            // tr.appendChild(td4)
+
+            var pr_name = document.getElementById("pr_name").value;
+            var pr_price = Number(document.getElementById("pr_price").value);
+            var pr_qty = Number(document.getElementById("pr_qty").value);
+
+            td.innerHTML = pr_name
+            td1.innerHTML = pr_price
+            td2.innerHTML = pr_qty
+
+            var total = pr_price * pr_qty;
+            td3.innerHTML = Number(total);
+            var sub_totle1 = Number(document.getElementById("sub_totle").innerHTML)
+            var sub = sub_totle1 + Number(total)
+            document.getElementById("sub_totle").innerHTML = sub
+
+
+
+            var net_totle = Number(document.getElementById("net_total").innerHTML)
+            // var sub = net_totle +  Number(total)
+            document.getElementById("net_total").innerHTML = sub
+
+
+
+
+
+
+
+
+            var inp = document.getElementsByClassName('inp')
+
+            for (var i = 0; i < inp.length; i++) {
+                inp[i].value = ""
+            }
+
+            td4.setAttribute('onclick', 'fun1(this)')
+
+
+        }
+
+
+        // function fun1(bt) {
+        //     bt.parentNode.remove()
+        //     document.getElementById("sub_totle").innerHTML = ""
+        //     document.getElementById("net_total").innerHTML = ""
+        // }
+
+        function fun2() {
+            window.print()
+        }
+    </script>
+</body>
+
+</html>
