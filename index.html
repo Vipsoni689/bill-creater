@@ -490,7 +490,12 @@
         document.querySelector('#submit').onclick = function () {
 
             var new_date = new Date();
-            document.getElementById('date').innerHTML = new_date
+            var year=new_date.getFullYear()
+            var month=new_date.getMonth()
+            var date=new_date.getDate()
+
+           
+            document.getElementById('date').innerHTML = `${date}/${month+1}/${year}`
 
 
             var bill1 = Math.trunc(Math.random(256) * 500000);
